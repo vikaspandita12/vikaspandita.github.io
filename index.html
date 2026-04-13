@@ -81,8 +81,12 @@ body{
   position:sticky;top:0;height:100vh;
   display:flex;flex-direction:column;
   border-right:1px solid var(--gl);
-  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
+.panel-left::-webkit-scrollbar{width:3px;}
+.panel-left::-webkit-scrollbar-track{background:transparent;}
+.panel-left::-webkit-scrollbar-thumb{background:var(--gl);border-radius:2px;}
 .panel-left::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(184,146,42,0.04) 0%,transparent 50%);
@@ -393,6 +397,23 @@ body{
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:translateY(0);}
+}
+
+/* ══ MEDIUM LAPTOP (fits left panel content) ══ */
+@media(max-height:820px) and (min-width:901px){
+  .profile-hero{padding:32px 40px 24px;}
+  .accent-line{margin-bottom:20px;}
+  .photo-frame{width:76px;height:76px;margin-bottom:18px;}
+  .fullname{font-size:34px;}
+  .fullname em{font-size:30px;}
+  .tagline{font-size:10px;line-height:1.8;}
+  .dists{padding:16px 40px;}
+  .dist{margin-bottom:8px;}
+  .dist-t{font-size:11.5px;}
+  .stats-grid{padding:0;}
+  .stat-cell{padding:12px 10px;}
+  .stat-n{font-size:22px;}
+  .left-cta{padding:16px 40px;}
 }
 
 /* ══ MOBILE ══ */
