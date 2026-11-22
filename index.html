@@ -30,7 +30,7 @@
   "@type": "Person",
   "name": "Vikas Pandita",
   "url": "https://vikaspanditaportfolio.bcyberaware.co.in/",
-  "image": "https://vikaspanditaportfolio.bcyberaware.co.in/assets/vikas.jpg",
+  "image": "https://vikaspanditaportfolio.bcyberaware.co.in/assets/vikas-pandita.jpg",
   "jobTitle": "Global Head of Security Architecture",
   "worksFor": { "@type": "Organization", "name": "BCyberAware", "url": "https://bcyberaware.co.in/" },
   "alumniOf": "IIM Kozhikode",
@@ -110,24 +110,22 @@ h2{font-family:var(--display);font-size:clamp(30px,4vw,44px);line-height:1.12;le
 .trust span{display:inline-flex;align-items:center;gap:8px}
 .trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan)}
 
-.portrait{position:relative;justify-self:center;width:min(420px,100%)}
-.portrait .ring{position:absolute;inset:-14px;border-radius:32px;background:conic-gradient(from 200deg,var(--cyan),var(--violet),var(--blue),var(--cyan));filter:blur(22px);opacity:.45;animation:spin 14s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.portrait .frame{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line2);background:var(--bg2);aspect-ratio:939/1024}
-.portrait .frame img{width:100%;height:100%;object-fit:cover}
-.portrait .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,10,20,.85))}
-.chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(10,17,32,.86);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:13px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.portrait{position:relative;justify-self:center;width:100%;display:flex;flex-direction:column;align-items:center}
+.portrait .frame,.portrait .glow{width:min(360px,100%)}
+.portrait .glow{inset:auto;top:6%;aspect-ratio:1;width:min(340px,90%)}
+.portrait .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;max-width:520px}
+.portrait .glow{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle,rgba(0,200,255,.45),rgba(139,92,246,.25) 55%,transparent 72%);filter:blur(40px)}
+.portrait .frame{position:relative;border-radius:50%;padding:5px;background:linear-gradient(140deg,var(--cyan),rgba(47,123,255,.4) 45%,var(--violet));box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.portrait .frame img{width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;background:var(--bg2)}
+.chip{position:relative;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(10,17,32,.86);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:13px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
 .chip b{display:block;font-size:13.5px}
 .chip small{color:var(--dim);font-size:11.5px}
 .chip .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(0,200,255,.12);font-size:17px}
-.chip.c1{left:-34px;top:14%}
-.chip.c2{right:-30px;top:48%}
-.chip.c3{left:18px;bottom:18px;right:18px;justify-content:flex-start}
 .chip.c3 img{width:34px;height:34px;border-radius:9px}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.stat{background:rgba(10,17,32,.9);padding:26px 22px}
+.stats{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{flex:1 1 170px;background:rgba(10,17,32,.9);padding:26px 22px}
 .stat .n{font-family:var(--display);font-size:clamp(30px,3.4vw,42px);font-weight:700;letter-spacing:-.02em}
 .stat .l{color:var(--muted);font-size:14px;margin-top:4px}
 
@@ -192,9 +190,7 @@ footer a:hover{color:var(--cyan)}
 @media (max-width:1020px){
   .links{display:none}
   .hero .wrap{grid-template-columns:1fr;gap:48px}
-  .portrait{width:min(360px,86%)}
-  .chip.c1{left:-12px}.chip.c2{right:-12px}
-  .stats{grid-template-columns:repeat(3,1fr)}
+  .portrait .frame,.portrait .glow{width:min(300px,78%)}
   .g4{grid-template-columns:repeat(2,1fr)}
   .g3{grid-template-columns:repeat(2,1fr)}
   .show{grid-template-columns:1fr;padding:32px}
@@ -205,11 +201,9 @@ footer a:hover{color:var(--cyan)}
   .wrap{padding:0 16px}
   .hero{padding:48px 0 40px}
   .nav .btn{display:none}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stats .stat:last-child{grid-column:span 2}
+  .stat{flex-basis:140px}
   .g4,.g3,.g2{grid-template-columns:1fr}
   .certs{grid-template-columns:1fr}
-  .chip.c1,.chip.c2{display:none}
   .contact{padding:44px 20px}
   .show{padding:24px}
 }
@@ -261,11 +255,13 @@ footer a:hover{color:var(--cyan)}
       </div>
 
       <div class="portrait rv">
-        <div class="ring" aria-hidden="true"></div>
-        <div class="frame"><img src="assets/vikas.jpg" alt="Vikas Pandita" width="939" height="1024" fetchpriority="high"/></div>
+        <div class="glow" aria-hidden="true"></div>
+        <div class="frame"><img src="assets/vikas-pandita.webp" alt="Vikas Pandita" width="760" height="760" fetchpriority="high"/></div>
+        <div class="chips">
         <div class="chip c1"><span class="ico">🏅</span><span><b>Olympic Games</b><small>Security Architect · IOC</small></span></div>
         <div class="chip c2"><span class="ico">🤖</span><span><b>6 AI platforms</b><small>governed · GenAI security</small></span></div>
         <a class="chip c3" href="#platform"><img src="assets/bcyberaware-icon.png" alt="" width="34" height="34"/><span><b>Founder, BCyberAware</b><small>Live threat intelligence platform</small></span></a>
+        </div>
       </div>
     </div>
   </section>
